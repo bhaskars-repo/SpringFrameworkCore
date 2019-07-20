@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                        
+    <bean id="simpleWorldHello" class="com.polarsparc.springframework.data.SimpleMemoryWorldHelloDAO" />
+    
+    <bean id="simpleWorldSalesTax" class="com.polarsparc.springframework.data.SimpleMemoryWorldSalesTaxDAO" />
+    
+    <bean name="simpleHelloGreeter" class="com.polarsparc.springframework.service.SimpleHelloGreeter4">
+        <constructor-arg index="0" type="java.lang.Integer" value="3" />
+        <constructor-arg index="1" type="java.lang.String" value=">" />
+        <constructor-arg index="2" ref="simpleWorldSalesTax" />
+        <property name="separator" value="," />
+        <property name="worldHello" ref="simpleWorldHello" />
+    </bean>
+</beans>
